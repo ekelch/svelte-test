@@ -1,5 +1,7 @@
 <script>
-    export let exportedValue = 'default value!'
+    export let name;
+    export let version;
+    export let speed;
 </script>
 
-<p>My name is {exportedValue}</p>
+<p>You are using {name} version {version}. The speeds are {speed} fast!</p>

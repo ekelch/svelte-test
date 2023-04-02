@@ -1,15 +1,19 @@
 module.exports = {
-	root: true,
-	extends: ['eslint:recommended', 'prettier'],
-	plugins: ['svelte3'],
-	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
-	parserOptions: {
-		sourceType: 'module',
-		ecmaVersion: 2020
+	parser: '@typescript-eslint/parser', // add the TypeScript parser
+	plugins: [
+		'svelte3',
+		'@typescript-eslint' // add the TypeScript plugin
+	],
+	overrides: [ // this stays the same
+		{
+			files: ['*.svelte'],
+			processor: 'svelte3/svelte3'
+		}
+	],
+	rules: {
+		// ...
 	},
-	env: {
-		browser: true,
-		es2017: true,
-		node: true
+	settings: {
+		'svelte3/typescript': () => require('typescript'), // pass the TypeScript package to the Svelte plugin
 	}
 };
